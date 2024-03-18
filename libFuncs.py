@@ -71,7 +71,7 @@ def output_txt(labels, bboxes):
         if len(cat_dic) == 1:
             body_txt = txt_1_cat.format(list(cat_dic.keys())[0])
         else:
-            body_txt = txt_more_than_one.format(len(cat_dic))
+            body_txt = txt_more_than_one.format(total)
             for cat in cat_dic:
                 if cat_dic[cat] > 1:
                     body_txt += ", {} are {}".format(cat_dic[cat],cat)
