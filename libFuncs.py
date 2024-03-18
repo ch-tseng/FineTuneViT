@@ -62,14 +62,17 @@ def output_txt(labels, bboxes):
                 count = cat_dic[l]                
 
             cat_dic.update( {l:count+1} )
-            total += count
+            total += 1
 
     if len(cat_dic) == 0:
         body_txt = txt_no_cat
 
     else:
         if len(cat_dic) == 1:
-            body_txt = txt_1_cat.format(list(cat_dic.keys())[0])
+            if list(cat_dic.keys())[0]==1:
+                body_txt = txt_1_cat.format(list(cat_dic.keys())[0])
+            else:
+                body_txt = txt_more_than_one.format(list(cat_dic.keys())[0])
         else:
             body_txt = txt_more_than_one.format(total)
             for cat in cat_dic:
