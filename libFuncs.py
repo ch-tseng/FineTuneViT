@@ -1,5 +1,7 @@
 from xml.dom import minidom
+from PIL import Image, ImageFont, ImageDraw
 import cv2
+import numpy as np
 from configparser import ConfigParser
 import ast
 
@@ -11,6 +13,23 @@ txt_1_cat = cfg.get("TEXT", "txt_1_cat")
 txt_more_than_one = cfg.get("TEXT", "txt_more_than_one")
 labels_requires = ast.literal_eval(cfg.get("DATASET", "labels_necessary"))
 
+
+def printText(bg, txt, color=(0,255,0,0), size=0.7, pos=(0,0), type="Chinese"):
+    (b,g,r,a) = color
+
+    if(type=="English"):
+        cv2.putText(bg,  txt, pos, cv2.FONT_HERSHEY_SIMPLEX, size,  (b,g,r), 2, cv2.LINE_AA)
+
+    else:
+        ## Use simsum.ttf to write Chinese.
+        fontpath = "fonts/wt009.ttf"
+        font = ImageFont.truetype(fontpath, int(size*10*2))
+        img_pil = Image.fromarray(bg)
+        draw = ImageDraw.Draw(img_pil)
+        draw.text(pos,  txt, font = font, fill = (b, g, r, a))
+        bg = np.array(img_pil)
+    return bg
+    
 def bb_intersection_over_union(A, B):
     boxA = [A[0], A[1], A[0]+A[2], A[1]+A[3]]
     boxB = [B[0], B[1], B[0]+B[2], B[1]+B[3]]
@@ -34,14 +53,16 @@ def bb_intersection_over_union(A, B):
 def output_txt(labels, bboxes):
     cat_dic = {}
     body_txt = ""
+    total = 0
     for i, l in enumerate(labels):
         if l in labels_requires:
             if l not in cat_dic:
                 count = 0
             else:
-                count = cat_dic[l]
+                count = cat_dic[l]                
 
             cat_dic.update( {l:count+1} )
+            total += count
 
     if len(cat_dic) == 0:
         body_txt = txt_no_cat
