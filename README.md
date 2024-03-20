@@ -2,7 +2,8 @@
 
 Train a ViT(Vision Transformer) that talks by looking at pictures, so that it can tell you the type of cat in the picture.
 
-If you need "cat breed and body markings" marked by Eden Digital Shelter Factory, please contact them: https://www.facebook.com/eden0112/
+If you need "cat breed and body markings" dataset which marked by Eden Digital Shelter Factory, please contact them: https://www.facebook.com/eden0112/
+
 
 Steps:
 
