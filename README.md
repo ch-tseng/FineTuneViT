@@ -1,9 +1,11 @@
 # How to finetune a ViT (Vision Transformer) model
 
 Train a ViT(Vision Transformer) that talks by looking at pictures, so that it can tell you the type of cat in the picture.
+
 If you need "cat breed and body markings" marked by Eden Digital Shelter Factory, please contact them: https://www.facebook.com/eden0112/
 
 Steps:
+
 ## A) Environment setting installation (it is recommended to use Virtualenv)
 - pip install opencv-python
 - pip install imutils
