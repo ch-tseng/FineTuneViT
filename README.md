@@ -28,4 +28,4 @@ You could find some pictures of cats and tag each picture with a description, bu
   
 ## D) Test ViT model
 Prepare a few pictures and execute: python reference.py.
-![Demo1]([https://myoctocat.com/assets/images/base-octocat.svg](https://github.com/ch-tseng/FineTuneViT/blob/main/demos/predict1.jpg)https://github.com/ch-tseng/FineTuneViT/blob/main/demos/predict1.jpg)
+![Demo1](https://github.com/ch-tseng/FineTuneViT/blob/main/demos/predict1.jpg)
