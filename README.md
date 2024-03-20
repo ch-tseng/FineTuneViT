@@ -36,3 +36,6 @@ You could find some pictures of cats and tag each picture with a description, bu
 ## D) Test ViT model
 Prepare a few pictures and execute: python reference.py.
 ![Demo1](https://github.com/ch-tseng/FineTuneViT/blob/main/demos/predict1.jpg)
+
+If an "OSError occurs during inference… does not appear to have a file named preprocessor_config.json…"
+error, please manually copy the preprocessor_config.json under the original ViT model (for example, ydshieh/vit-gpt2-coco-en) to the finetuned model directory.
